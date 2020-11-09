@@ -34,9 +34,18 @@ public class StudentController {
                 if (student.getGender().equals(gender))
                     students.add(student);
             }
-
             return ResponseEntity.ok().body(students);
 
         }
+    }
+
+    @GetMapping("/students/{id}")
+    public ResponseEntity<Student> getSingleStudent(@PathVariable int id){
+            for (Student student: studentArrayList){
+                if (student.getId() == id){
+                    return ResponseEntity.ok().body(student);
+                }
+            }
+            return ResponseEntity.notFound().build();
     }
 }
