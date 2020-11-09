@@ -2,9 +2,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.dto.Student;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -14,8 +12,14 @@ public class StudentController {
     static ArrayList<Student> studentArrayList = new ArrayList<>();
 
     @PostMapping("/students")
-    public ResponseEntity<Student> addStudents(@RequestBody Student student){
+    public ResponseEntity<Student> addStudent(@RequestBody Student student){
         studentArrayList.add(student);
+        return ResponseEntity.status(201).build();
+    }
+
+    @DeleteMapping("/students/{id}")
+    public ResponseEntity<Student>  deleteStudent(@PathVariable int id){
+        studentArrayList.remove(id-1);
         return ResponseEntity.ok().build();
     }
 

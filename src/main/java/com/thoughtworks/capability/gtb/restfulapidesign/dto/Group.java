@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Group {
-    private long id;
+    private int id;
     private String name;
     private String note;
 }
