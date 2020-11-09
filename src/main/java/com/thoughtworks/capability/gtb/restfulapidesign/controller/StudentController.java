@@ -48,4 +48,16 @@ public class StudentController {
             }
             return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/students/{id}")
+    public ResponseEntity<Student> updateStudentInformation(@PathVariable int id, @RequestBody Student newStudent){
+        for (Student oldStudent: studentArrayList){
+            if (oldStudent.getId() == id){
+                oldStudent.setName(newStudent.getName());
+                oldStudent.setGender(newStudent.getGender());
+                oldStudent.setNote(newStudent.getNote());
+            }
+        }
+        return ResponseEntity.ok().build();
+    }
 }
