@@ -23,4 +23,20 @@ public class StudentController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/students")
+    public ResponseEntity<ArrayList<Student>> getStudents(@RequestParam(value = "gender",required = false) String gender) {
+        if (gender.equals("")){
+            return  ResponseEntity.ok().body(studentArrayList);
+        }
+        else {
+            ArrayList<Student> students = new ArrayList<>();
+            for (Student student : studentArrayList) {
+                if (student.getGender().equals(gender))
+                    students.add(student);
+            }
+
+            return ResponseEntity.ok().body(students);
+
+        }
+    }
 }
