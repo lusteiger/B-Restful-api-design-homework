@@ -1,6 +1,5 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,12 +8,14 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Group {
-    private int id;
-    private String name;
-    private String note;
-    private ArrayList<Student> students;
+public class Groups {
+    private   Group group1;
+    private   Group group2;
+    private   Group group3;
+    private   Group group4;
+    private   Group group5;
+    private   Group group6;
 }
